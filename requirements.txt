@@ -1,0 +1,32 @@
+# Core Framework
+streamlit==1.51.0
+
+# Document Processing
+PyMuPDF==1.26.5
+python-docx==1.2.0
+openpyxl==3.1.5
+
+# Data / ML
+pandas==2.3.3
+sentence-transformers==5.1.2
+scikit-learn==1.7.2
+torch==2.9.0
+transformers==4.57.1
+
+# Visualization
+plotly==6.3.1
+matplotlib==3.10.7
+
+# PDF Generation
+reportlab==4.4.4
+fpdf2==2.8.5
+
+# Utilities
+python-dateutil==2.9.0.post0
+tqdm==4.67.1
+nltk==3.9.2
+
+# Code Quality / Testing
+black==25.1.0
+pylint==3.3.9
+pytest==8.4.2
