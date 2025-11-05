@@ -1,145 +1,219 @@
-Document Similarity & Plagiarism Detection System
-Show Image
-Show Image
-Show Image
+# 🧠 Document Similarity Search
 
-A production-ready, enterprise-grade plagiarism detection system with advanced NLP capabilities, supporting multiple document formats and providing detailed similarity analysis.
+<div align="center">
 
-🌟 Features
-Core Capabilities
-Multi-Format Support: PDF, DOCX, TXT, CSV, XLSX
-Semantic Analysis: Uses state-of-the-art transformer models
-Detailed Reports: Paragraph-level similarity breakdown
-Visual Analytics: Interactive similarity heatmaps and charts
-Export Options: Generate PDF/Excel reports
-Batch Processing: Compare multiple documents simultaneously
-Real-time Processing: Progress indicators and streaming results
-Advanced Features
-Chunked Processing: Handles large documents (100+ pages)
-Multi-language Support: Works with 100+ languages
-Citation Detection: Identifies properly cited content
-Highlight Matching: Shows exact matching text segments
-Historical Tracking: Save and compare previous analyses
-API Ready: Modular architecture for API integration
-🚀 Quick Start
-Prerequisites
-bash
-Python 3.9 or higher
-pip package manager
-Installation
-Clone the repository
-bash
-git clone <your-repo-url>
-cd plagiarism-checker
-Create virtual environment
-bash
+![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)
+![Streamlit](https://img.shields.io/badge/Streamlit-1.51.0-red.svg)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
+![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen.svg)
+
+**Enterprise-grade plagiarism detection powered by NLP and transformer-based semantic analysis**
+
+[Features](#-features) • [Installation](#-installation) • [Usage](#-usage) • [Architecture](#-architecture) • [Tech Stack](#-tech-stack) • [Demo](#-demo)
+
+</div>
+
+---
+
+## 🎯 Overview
+
+The **Document Similarity Search** is an AI-powered platform that leverages **transformer-based models** to detect semantic similarity between documents with over **95% accuracy**.  
+Built using **Streamlit**, it offers an intuitive, professional interface ideal for **academic**, **enterprise**, and **publishing** use cases.
+
+---
+
+## ✨ Key Highlights
+
+- 🧠 **Semantic Understanding** – Context-aware comparison using Sentence Transformers (`all-MiniLM-L6-v2`)
+- 📊 **Comprehensive Scoring** – Plagiarism score (0–100%) with risk-level classification
+- 🎨 **Visual Insights** – Interactive similarity heatmaps and highlighted matches
+- 📁 **Multi-Format Input** – Supports PDF, DOCX, TXT, CSV, and XLSX
+- 📄 **Exportable Reports** – Generate detailed PDF, Excel, or JSON reports
+- ⚡ **Optimized Speed** – Handles large files efficiently through chunked processing
+- 🎯 **High Accuracy** – Semantic similarity detection above 95%
+
+---
+
+## 🌟 Features
+
+| Feature | Description |
+|----------|-------------|
+| **Transformer-based Semantic Similarity** | Uses `all-MiniLM-L6-v2` model for deep content understanding |
+| **Multi-File Support** | PDF, DOCX, TXT, CSV, XLSX |
+| **Similarity Scoring** | Detailed 0–100% similarity index |
+| **Risk Classification** | High / Moderate / Low plagiarism risk |
+| **Heatmap Visualization** | Chunk-level visual representation of similarity |
+| **Highlight Matching** | Displays exact overlapping sentences |
+| **Batch Mode** | Analyze multiple document pairs |
+| **Professional Export** | Generate PDF, Excel, or JSON reports |
+
+---
+
+## 🚀 Installation
+
+### Prerequisites
+- Python 3.9+
+- pip package manager  
+- Minimum 4GB RAM (8GB recommended)
+
+### Steps
+
+```bash
+# Clone repository
+git clone https://github.com/<your-username>/document-similarity-Search.git
+cd document-similarity-Search
+
+# Create virtual environment
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-Install dependencies
-bash
+# Activate (Windows)
+venv\Scripts\activate
+# Activate (macOS/Linux)
+source venv/bin/activate
+
+# Install dependencies
 pip install -r requirements.txt
-Download NLTK data (first time only)
-bash
-python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords')"
-Run the application
-bash
+
+# Download NLTK resources (first time only)
+python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords'); nltk.download('wordnet')"
+
+# Run application
 streamlit run app.py
-The app will open in your browser at http://localhost:8501
+```
 
-📖 Usage Guide
-Basic Comparison
-Upload two documents using the file uploaders
-Click "Analyze Documents"
-View similarity score and detailed breakdown
-Export results as needed
-Advanced Options
-Similarity Threshold: Adjust sensitivity (default: 0.7)
-Chunk Size: Modify for performance tuning (default: 500 tokens)
-Analysis Depth: Choose between Quick/Standard/Deep analysis
-Language: Auto-detect or manually specify
-Interpretation
-Similarity Score	Interpretation
-90-100%	Near-identical / High plagiarism risk
-70-89%	Substantial similarity / Moderate risk
-50-69%	Moderate similarity / Common topic
-30-49%	Low similarity / Different focus
-0-29%	Minimal similarity / Original content
-🏗️ Architecture
-app.py                 # Main Streamlit interface
+Visit `http://localhost:8501` to use the app.
+
+---
+
+## 🧩 Usage
+
+1. **Upload two documents** to compare  
+2. **Select analysis mode** (Quick / Standard / Deep)  
+3. **Click "Analyze Documents"**  
+4. **Review results** – Similarity score, highlighted overlaps, heatmaps  
+5. **Export** report to PDF, Excel, or JSON  
+
+### Analysis Modes
+
+| Mode | Speed | Accuracy | Ideal Use |
+|------|-------|-----------|-----------|
+| **Quick** | ⚡ Fastest | Moderate | Initial screening |
+| **Standard** | 🎯 Balanced | High | General use |
+| **Deep** | 🔍 Detailed | Maximum | Academic / Legal docs |
+
+### Similarity Interpretation
+
+| Score | Risk Level | Interpretation |
+|--------|-------------|----------------|
+| 90–100% | 🔴 High | Near-identical content |
+| 70–89% | 🟡 Moderate | Substantial overlap |
+| 50–69% | 🟠 Medium | Shared ideas or phrasing |
+| 30–49% | 🟢 Low | Minor overlap |
+| 0–29% | ✅ Minimal | Original content |
+
+---
+
+## 🏗️ Architecture
+
+```
+Document-Similarity-Search/
+├── app.py                      # Main Streamlit app
+├── requirements.txt            # Dependencies
+├── README.md                   # Documentation
+│
 ├── config/
-│   └── settings.py    # Configuration management
+│   └── settings.py             # Configurations
+│
 ├── utils/
-│   ├── file_handler.py       # Document extraction
-│   ├── text_processor.py     # Text preprocessing
-│   ├── similarity_engine.py  # Core similarity logic
-│   └── report_generator.py   # Export functionality
+│   ├── file_handler.py         # PDF, DOCX, TXT parsing
+│   ├── text_processor.py       # Cleaning, tokenizing, chunking
+│   ├── similarity_engine.py    # Transformer-based comparison
+│   └── report_generator.py     # Export logic
+│
 ├── assets/
-│   └── styles.css     # Custom styling
+│   └── styles.css              # Custom UI theme
+│
 └── tests/
-    └── test_core.py   # Unit tests
-🔧 Configuration
-Edit config/settings.py to customize:
+    └── test_core.py            # Unit tests
+```
 
-python
-MODEL_NAME = "all-MiniLM-L6-v2"  # Change model
-MAX_FILE_SIZE = 50 * 1024 * 1024  # 50MB limit
-CHUNK_SIZE = 500  # Tokens per chunk
-SIMILARITY_THRESHOLD = 0.7  # Detection threshold
-📊 Performance
-Speed: Processes 10-page documents in ~2-3 seconds
-Accuracy: 95%+ semantic similarity detection
-Scalability: Handles documents up to 50MB
-Memory: Optimized chunking for low memory usage
-🧪 Testing
-Run the test suite:
+---
 
-bash
+## ⚙️ Configuration
+
+Edit `config/settings.py` to modify sensitivity or chunking:
+
+```python
+MODEL_NAME = "all-MiniLM-L6-v2"
+CHUNK_SIZE = 500
+SIMILARITY_THRESHOLD = 0.7
+ANALYSIS_MODES = {
+    "Quick": {"chunk_size": 1000},
+    "Standard": {"chunk_size": 500},
+    "Deep": {"chunk_size": 250}
+}
+```
+
+---
+
+## 📊 Performance Benchmarks
+
+| Metric | Value |
+|---------|--------|
+| **Speed** | 10-page docs in ~3s |
+| **Accuracy** | >95% semantic detection |
+| **Scalability** | Up to 50MB per file |
+| **Supported Languages** | 100+ via multilingual models |
+
+---
+
+## 🧪 Testing
+
+```bash
 pytest tests/
-Run with coverage:
-
-bash
 pytest --cov=utils tests/
-🤝 Contributing
-Contributions are welcome! Please:
+pytest tests/test_core.py::TestSimilarityEngine -v
+```
 
-Fork the repository
-Create a feature branch
-Make your changes with tests
-Submit a pull request
-📝 License
-This project is licensed under the MIT License - see LICENSE file for details.
+---
 
-🐛 Troubleshooting
-Common Issues
-Issue: Model download fails
+## 🛠️ Tech Stack
 
-bash
-Solution: Manually download from HuggingFace
-huggingface-cli download sentence-transformers/all-MiniLM-L6-v2
-Issue: Out of memory errors
+| Category | Technology |
+|-----------|-------------|
+| **Framework** | Streamlit |
+| **Model** | Sentence-Transformers (all-MiniLM-L6-v2) |
+| **Libraries** | scikit-learn, PyTorch, Transformers |
+| **Text Processing** | NLTK |
+| **File Handling** | PyMuPDF, python-docx, openpyxl |
+| **Visualization** | Plotly, Matplotlib |
+| **Reporting** | FPDF2, ReportLab, Pandas |
 
-bash
-Solution: Reduce CHUNK_SIZE in config/settings.py
-CHUNK_SIZE = 250  # Smaller chunks
-Issue: Slow processing
+---
 
-bash
-Solution: Use GPU acceleration
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+## 🐛 Troubleshooting
 
-🙏 Acknowledgments
-Sentence Transformers by UKPLab
-Streamlit team for the framework
-Open-source community
-🔮 Roadmap
- Multi-document batch comparison
- Integration with Google Drive/Dropbox
- Real-time collaboration features
- Mobile app version
- API endpoint deployment
- Advanced citation management
- Machine learning model fine-tuning
-Version: 2.0.0
-Last Updated: November 2025
-Status: Production Ready ✅
+**Model download fails**
+```bash
+pip install sentence-transformers --upgrade
+python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('all-MiniLM-L6-v2')"
+```
 
+**Memory error**
+```bash
+# Reduce chunk size
+CHUNK_SIZE = 250
+```
+
+**Missing NLTK data**
+```bash
+python -c "import nltk; nltk.download('all')"
+```
+
+<div align="center">
+
+⭐ **If this project helps you, please give it a star on GitHub!** ⭐  
+Made with ❤️ using NLP and Python
+
+[⬆ Back to Top](#-document-similarity--Search)
+
+</div>
