@@ -7,7 +7,7 @@ import os
 from pathlib import Path
 
 # Application Metadata
-APP_TITLE = "Document Similarity System"
+APP_TITLE = "Document Similarity Search"
 APP_ICON = "📄"
 VERSION = "2.0.0"
 
