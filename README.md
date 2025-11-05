@@ -214,6 +214,4 @@ python -c "import nltk; nltk.download('all')"
 ⭐ **If this project helps you, please give it a star on GitHub!** ⭐  
 Made with ❤️ using NLP and Python
 
-[⬆ Back to Top](#-document-similarity--Search)
-
 </div>
